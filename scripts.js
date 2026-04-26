@@ -1,7 +1,7 @@
 /* ============================================
    CONFIGURATION
 ============================================ */
-const REGISTER_URL = "#";
+const REGISTER_URL = "https://vcicoach.jp.larksuite.com/share/base/form/shrjp3VuWrksurWubYfX1TTDVSb";
 
 /* ============================================
    REGISTER LINKS
