@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VCI Offer Section</title>
+  <style>
+    :root {
+      --vci-navy: #1d4d54;
+      --vci-blue: #1d4d54;
+      --vci-gold: #8bbc40;
+      --vci-gold-soft: #edf7dc;
+      --vci-cream: #fbf7ef;
+      --vci-white: #ffffff;
+      --vci-text: #233044;
+      --vci-muted: #697487;
+      --vci-line: rgba(29, 77, 84, 0.14);
+      --shadow: 0 24px 70px rgba(29, 77, 84, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: #f4efe6;
+      color: var(--vci-text);
+    }
+
+    .vci-section-bg {
+      background:
+        radial-gradient(circle at 12% 15%, rgba(139, 188, 64, 0.24), transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(29, 77, 84, 0.18), transparent 32%),
+        linear-gradient(135deg, #fffaf1 0%, #f7efe2 44%, #edf3f8 100%);
+    }
+
+    .vci-offer-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      padding: 92px 24px;
+    }
+
+    .vci-offer-section::before {
+      content: "";
+      position: absolute;
+      inset: 30px;
+      border: 1px solid rgba(29, 77, 84, 0.08);
+      border-radius: 36px;
+      pointer-events: none;
+    }
+
+    .vci-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .vci-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .vci-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border: 1px solid rgba(139, 188, 64, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--vci-blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .vci-kicker span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--vci-gold);
+      box-shadow: 0 0 0 6px rgba(139, 188, 64, 0.16);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--vci-navy);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    h1 em {
+      color: var(--vci-gold);
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .vci-lead {
+      margin: 22px 0 0;
+      max-width: 650px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--vci-muted);
+    }
+
+    .vci-proof {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(29, 77, 84, 0.94);
+      color: var(--vci-white);
+      box-shadow: var(--shadow);
+    }
+
+    .vci-proof-label {
+      margin-bottom: 14px;
+      color: var(--vci-gold-soft);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .vci-proof p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .vci-proof strong { color: #dff3b8; }
+
+    .vci-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .vci-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 510px;
+      padding: 28px;
+      border: 1px solid var(--vci-line);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 18px 42px rgba(29, 77, 84, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .vci-card.featured {
+      transform: translateY(-16px);
+      border-color: rgba(139, 188, 64, 0.5);
+      background: linear-gradient(180deg, #ffffff 0%, #f6fbec 100%);
+      box-shadow: 0 32px 80px rgba(29, 77, 84, 0.17);
+    }
+
+    .vci-badge {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #edf7dc;
+      color: var(--vci-blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .featured .vci-badge {
+      background: var(--vci-navy);
+      color: #dff3b8;
+    }
+
+    .vci-card h2 {
+      margin: 0 0 8px;
+      color: var(--vci-navy);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 31px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .vci-subtitle {
+      min-height: 52px;
+      margin: 0 0 22px;
+      color: var(--vci-muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .vci-price {
+      margin: 0 0 4px;
+      color: var(--vci-navy);
+      font-size: 38px;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+
+    .vci-price small {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .vci-old-price {
+      margin-bottom: 22px;
+      color: #8a93a3;
+      font-size: 15px;
+    }
+
+    .vci-old-price s { color: #9aa3b1; }
+
+    .vci-divider {
+      width: 100%;
+      height: 1px;
+      margin: 4px 0 22px;
+      background: var(--vci-line);
+    }
+
+    .vci-list {
+      display: grid;
+      gap: 13px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .vci-list li {
+      position: relative;
+      padding-left: 28px;
+      color: #344258;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .vci-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: rgba(139, 188, 64, 0.16);
+      color: var(--vci-gold);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 19px;
+      text-align: center;
+    }
+
+    .vci-actions {
+      margin-top: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .vci-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 52px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 850;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .vci-btn-primary {
+      background: var(--vci-navy);
+      color: var(--vci-white);
+      box-shadow: 0 14px 30px rgba(29, 77, 84, 0.22);
+    }
+
+    .vci-btn-gold {
+      background: linear-gradient(135deg, #d7a64a, #b9d979);
+      color: #13223a;
+      box-shadow: 0 16px 34px rgba(139, 188, 64, 0.36);
+    }
+
+    .vci-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(29, 77, 84, 0.22);
+    }
+
+    .vci-note {
+      color: var(--vci-muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .vci-card.master {
+      background:
+        linear-gradient(180deg, rgba(29, 77, 84, 0.95), rgba(29, 77, 84, 0.94)),
+        radial-gradient(circle at top right, rgba(139, 188, 64, 0.22), transparent 34%);
+      color: var(--vci-white);
+    }
+
+    .vci-card.master h2,
+    .vci-card.master .vci-price { color: var(--vci-white); }
+    .vci-card.master .vci-subtitle,
+    .vci-card.master .vci-list li,
+    .vci-card.master .vci-note { color: rgba(255, 255, 255, 0.76); }
+    .vci-card.master .vci-divider { background: rgba(255, 255, 255, 0.14); }
+    .vci-card.master .vci-badge { background: rgba(255, 255, 255, 0.12); color: #dff3b8; }
+
+    .vci-footer-line {
+      margin-top: 30px;
+      padding: 18px 24px;
+      border: 1px solid rgba(29, 77, 84, 0.10);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.58);
+      color: var(--vci-muted);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .vci-footer-line strong { color: var(--vci-navy); }
+
+    @media (max-width: 980px) {
+      .vci-hero { grid-template-columns: 1fr; }
+      .vci-cards { grid-template-columns: 1fr; }
+      .vci-card, .vci-card.featured { min-height: auto; transform: none; }
+    }
+
+    @media (max-width: 560px) {
+      .vci-offer-section { padding: 58px 16px; }
+      .vci-offer-section::before { inset: 14px; border-radius: 24px; }
+      .vci-card, .vci-proof { padding: 22px; border-radius: 24px; }
+      .vci-footer-line { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="vci-offer-section vci-section-bg">
+    <div class="vci-wrap">
+      <div class="vci-hero">
+        <div>
+          <div class="vci-kicker"><span></span> VCI Coaching Certification Pathway</div>
+          <h1>Chọn lộ trình <em>chuyển hóa</em> năng lực Coach của bạn</h1>
+          <p class="vci-lead">
+            Ba cấp độ đồng hành dành cho những người muốn phát triển Coaching như một năng lực lãnh đạo, một nghề chuyên nghiệp, hoặc một di sản ảnh hưởng lâu dài.
+          </p>
+        </div>
+
+        <div class="vci-proof">
+          <div class="vci-proof-label">Ưu đãi chương trình</div>
+          <p>
+            Lộ trình được thiết kế theo chuẩn ICF, kết hợp đào tạo, mentoring và đồng hành cá nhân hóa để giúp học viên đi từ nền tảng đến chuyên sâu với <strong>cam kết chất lượng quốc tế</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="vci-cards">
+        <article class="vci-card">
+          <div class="vci-badge">ICF Level 1</div>
+          <h2>Transformation Coaching</h2>
+          <p class="vci-subtitle">Lộ trình nền tảng dành cho lãnh đạo và Coach chuyên nghiệp bắt đầu hành trình chứng nhận quốc tế.</p>
+          <p class="vci-price">55 <small>triệu</small></p>
+          <div class="vci-old-price">Giá gốc: <s>60 triệu</s> · Ưu đãi chương trình</div>
+          <div class="vci-divider"></div>
+          <ul class="vci-list">
+            <li>Nền tảng kỹ năng, tư duy và mô hình Coaching theo chuẩn ICF.</li>
+            <li>Phù hợp với người mới bắt đầu hoặc lãnh đạo muốn ứng dụng khai vấn.</li>
+            <li>Bước đệm để theo đuổi chứng nhận Coach chuyên nghiệp cấp ACC.</li>
+          </ul>
+          <div class="vci-actions">
+            <a class="vci-btn vci-btn-primary" href="https://icf-lv1.vcicoach.com/start" target="_blank" rel="noopener">Xem chi tiết Level 1</a>
+            <div class="vci-note">Dành cho học viên muốn xây nền móng vững chắc.</div>
+          </div>
+        </article>
+
+        <article class="vci-card featured">
+          <div class="vci-badge">ICF Level 2 · Best Value</div>
+          <h2>Legacy Mentoring</h2>
+          <p class="vci-subtitle">Lộ trình nâng cao dành cho Coach đã có nền tảng và muốn phát triển năng lực PCC, sản phẩm khai vấn và ảnh hưởng nghề nghiệp.</p>
+          <p class="vci-price">325 <small>triệu</small></p>
+          <div class="vci-old-price">Giá niêm yết: <s>365 triệu</s> · Áp dụng khi trả 1 lần</div>
+          <div class="vci-divider"></div>
+          <ul class="vci-list">
+            <li>Đào sâu kỹ thuật khai vấn chuyển hóa chuyên sâu.</li>
+            <li>Tăng năng lực mentoring, thực hành và xây dựng định vị Coach.</li>
+            <li>Phù hợp với người muốn phát triển sự nghiệp Coaching dài hạn.</li>
+          </ul>
+          <div class="vci-actions">
+            <a class="vci-btn vci-btn-gold" href="#apply-legacy" aria-label="Đăng ký tư vấn Legacy Mentoring">Đăng ký tư vấn Legacy Mentoring</a>
+            <div class="vci-note">Lựa chọn chiến lược cho Coach nghiêm túc với nghề.</div>
+          </div>
+        </article>
+
+        <article class="vci-card master">
+          <div class="vci-badge">Mentoring 1-1</div>
+          <h2>Private Mentoring</h2>
+          <p class="vci-subtitle">Không mở đại trà. Lộ trình đồng hành cá nhân dành cho những người phù hợp về mục tiêu, cam kết và thời điểm phát triển.</p>
+          <p class="vci-price">Interview</p>
+          <div class="vci-old-price">Phỏng vấn để được chọn</div>
+          <div class="vci-divider"></div>
+          <ul class="vci-list">
+            <li>Đồng hành 1-1 theo mục tiêu phát triển cá nhân và nghề nghiệp.</li>
+            <li>Tập trung vào đột phá năng lực, định vị và chiến lược thực thi.</li>
+            <li>Chỉ dành cho ứng viên phù hợp sau vòng phỏng vấn lựa chọn.</li>
+          </ul>
+          <div class="vci-actions">
+            <a class="vci-btn vci-btn-gold" href="#interview" aria-label="Ứng tuyển phỏng vấn Mentoring 1-1">Ứng tuyển phỏng vấn 1-1</a>
+            <div class="vci-note">Số lượng giới hạn theo năng lực đồng hành của mentor.</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="vci-footer-line">
+        <strong>Gợi ý triển khai:</strong> đặt section này ngay sau hero hoặc sau phần “vấn đề / mong muốn”, kèm form tư vấn hoặc nút đặt lịch cá nhân để tối ưu chuyển đổi.
+      </div>
+    </div>
+  </section>
+</body>
+</html>
